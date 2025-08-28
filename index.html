@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="style.css">
+    <title> 🌐 SANDY AI </title>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="header-content">
+                <div class="ai-info">
+                    <h1 class="ai-name">SANDY</h1>
+                    <p class="ai-status">Online e pronto para ajudar</p>
+                </div>
+                
+                <!-- Controles de Zoom -->
+                <div class="zoom-controls">
+                    <button id="zoom-out" class="zoom-btn" title="Diminuir zoom">
+                        <span class="zoom-icon">−</span>
+                    </button>
+                    <span id="zoom-level" class="zoom-level">100%</span>
+                    <button id="zoom-in" class="zoom-btn" title="Aumentar zoom">
+                        <span class="zoom-icon">+</span>
+                    </button>
+                    <button id="zoom-reset" class="zoom-btn zoom-reset" title="Resetar zoom">
+                        <span class="zoom-icon">⌂</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Área Principal -->
+        <main class="main-content">
+            <!-- Interface Central de Fala -->
+            <div class="speaking-interface">
+                <div class="ai-avatar-speaking">
+                    <div class="avatar-circle" id="speaking-avatar">
+                        <span class="avatar-icon">🤖</span>
+                        <div class="speaking-indicator" id="speaking-indicator">
+                            <div class="wave wave1"></div>
+                            <div class="wave wave2"></div>
+                            <div class="wave wave3"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="speech-bubble" id="speech-bubble">
+                    <div class="speech-text" id="speech-text">
+                        Olá! Sou seu assistente de IA. Posso ajudar com saudações, informações sobre temperatura, cálculos matemáticos e leitura de textos. Como posso ajudá-lo hoje?
+                    </div>
+                    <div class="typing-indicator" id="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <!-- Controles de Áudio -->
+                <div class="audio-controls">
+                    <button id="mute-toggle" class="audio-btn" title="Ativar/Desativar som">
+                        <span class="audio-icon">🔊</span>
+                    </button>
+                    <div class="volume-control">
+                        <input type="range" id="volume-slider" min="0" max="100" value="70" class="volume-slider">
+                        <span class="volume-label">70%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container do Chat -->
+            <div class="chat-container">
+                <!-- Mensagens do Chat -->
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Mensagens aparecerão aqui dinamicamente -->
+                </div>
+
+                <!-- Área de Entrada -->
+                <div class="chat-input-area">
+                    <div class="input-container">
+                        <div class="input-wrapper">
+                            <textarea 
+                                id="user-input" 
+                                class="chat-input" 
+                                placeholder="Digite sua mensagem aqui..."
+                                rows="1"
+                                maxlength="1000"
+                            ></textarea>
+                            <button id="send-button" class="send-button" title="Enviar mensagem">
+                                <span class="send-icon">➤</span>
+                            </button>
+                        </div>
+                        <div class="input-info">
+                            <div class="suggestions">
+                                <span class="suggestion-label">Experimente:</span>
+                                <button class="suggestion-btn" data-text="olá">Saudação</button>
+                                <button class="suggestion-btn" data-text="qual a temperatura?">Temperatura</button>
+                                <button class="suggestion-btn" data-text="quanto é 15 + 25?">Matemática</button>
+                                <button class="suggestion-btn" data-text="leia: Este é um texto de exemplo para demonstrar a funcionalidade de leitura">Leitura</button>
+                            </div>
+                            <div class="char-counter">
+                                <span id="char-count">0</span>/1000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <div class="status-indicators">
+                <div class="status-item">
+                    <span class="status-dot" id="connection-dot"></span>
+                    <span class="status-text" id="connection-status">Conectando...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot ai-dot"></span>
+                    <span class="status-text" id="ai-status">IA: Inicializando</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot tts-dot" id="tts-dot"></span>
+                    <span class="status-text" id="tts-status">TTS: Pronto</span>
+                </div>
+            </div>
+            <div class="footer-info">
+                <span class="version">v2.1</span>
+                <span class="separator">•</span>
+                <span class="powered-by">Powered by Manus AI</span>
+                <span class="separator">•</span>
+                <span class="features">Text-to-Speech Enabled</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p class="loading-text">Processando...</p>
+        </div>
+    </div>
+
+    <!-- Audio Element for TTS -->
+    <audio id="tts-audio" preload="none"></audio>
+
+    <script
+src="ai_conversation_engine.js"></script> <!-- ADICIONE ESTA LINHA-->
+
+    <script src="script.js"></script>
+</body>
+</html>
